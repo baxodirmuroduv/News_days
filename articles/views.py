@@ -26,7 +26,7 @@ class ArticleUpdateView(UserPassesTestMixin, LoginRequiredMixin, UpdateView):
     login_url = 'login'
 
     def test_func(self):
-        obj = self.get.object()
+        obj = self.get_object()
         return not obj.author == self.request.user
 
 
@@ -37,7 +37,7 @@ class ArticleDeleteView(UserPassesTestMixin, LoginRequiredMixin, DeleteView):
     login_url = 'login'
 
     def test_func(self):
-        obj = self.get.object()
+        obj = self.get_object()
         return not obj.author == self.request.user
 
 
